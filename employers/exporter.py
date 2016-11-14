@@ -8,10 +8,12 @@ import os.path
 import requests 
 
 import ConfigParser
+import codecs
 
 from utils import get_config, read_all_pages, get_auth_key
 
 logger  = logging.getLogger('import_log')
+logger  = logging.getLogger('console')
 
 def config_get_safe(config, section, key, default=None):
     try:
@@ -47,17 +49,25 @@ class ReaderClient(object):
             'Content-type': 'application/json'
         }
 
+    def already_imported(self, prefix):
+        path = os.path.join(self.save_dir, r'{}.data.json'.format(prefix))
+        return os.path.exists(path)
+
 
     def save_record(self, emp):
         name = emp.get('name').replace('/', '_').replace('\0','_')
         empid = emp.get('id').replace('/','_').replace('\0','_')
         prefix = u'{}_{}'.format(name, empid)
 
+        if self.already_imported(prefix):
+            logger.debug(u'already saved {}, skipping'.format(prefix))
+            return False
+
         logger.debug(u'processing: {}'.format(prefix))
 
-        data_file = u'{}data.json'.format(prefix)
-        with open(os.path.join(self.save_dir, data_file), 'w') as out: 
-            out.write(json.dumps(emp,  indent=4))
+        data_file = u'{}.data.json'.format(prefix)
+        with codecs.open(os.path.join(self.save_dir, data_file), 'w', encoding="utf-8") as out: 
+            out.write(json.dumps(emp,  indent=4, ensure_ascii = False))
         return True 
 
     def run(self):
@@ -68,13 +78,12 @@ class ReaderClient(object):
         counter = 1
         stop = False 
         for page in read_all_pages(url, headers, self.import_limit):
-            for cand in page:
+            for emp in page:
                 if self.import_limit and counter > self.import_limit:
-                    print "counter inside--",counter
                     logger.debug('reached limit')
                     stop = True 
                     break 
-                saved = self.save_record(cand)
+                saved = self.save_record(emp)
                 if saved:
                     counter += 1
             if stop:
