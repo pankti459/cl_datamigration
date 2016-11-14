@@ -1,0 +1,58 @@
+<DATA>
+
+	<ROW>
+		<id>1</id>
+		<name>Byyyyyy, Inc.</name>
+		<tagline>NULL</tagline>
+		<location>Miami FL</location>
+		<url>http://www.byyyyyyy.com</url>
+		<picture_url>default.jpg</picture_url>
+		<stripe_customer_id>NULL</stripe_customer_id>
+		<post_count>0</post_count>
+		<date_created>2006-05-25 00:00:00</date_created>
+		<old_id>461</old_id>
+		<user_id>78985</user_id>
+		<company_id>1</company_id>
+		<full_name>Tom Caaaaaa</full_name>
+		<email>t.caaaaa@byyyyyyy.com</email>
+		<type>hirer</type>
+	</ROW>
+
+
+	<!-- user info in following two records will be grouped -->
+	<ROW>
+		<id>2</id>
+		<name>Axxxxx Laboratories</name>
+		<tagline>Follow your aspirations to Axxxxx for diverse opportunities, competitive salaries, great benefits, a 401(k) retirement savings plan, a company paid pension plan and profit sharing, all with a company providing the growth and strength to build your future.</tagline>
+		<location>Redwood City CA</location>
+		<url>http://www.axxxx.com</url>
+		<picture_url>default.jpg</picture_url>
+		<stripe_customer_id>NULL</stripe_customer_id>
+		<post_count>0</post_count>
+		<date_created>2006-05-24 00:00:00</date_created>
+		<old_id>460</old_id>
+		<user_id>78986</user_id>
+		<company_id>2</company_id>
+		<full_name>Almeca Jooooo</full_name>
+		<email>ajooooo@axxxx.com</email>
+		<type>hirer</type>
+	</ROW>
+	<ROW>
+		<id>2</id>
+		<name>Axxxxx Laboratories</name>
+		<tagline>Follow your aspirations to Axxxxx for diverse opportunities, competitive salaries, great benefits, a 401(k) retirement savings plan, a company paid pension plan and profit sharing, all with a company providing the growth and strength to build your future.</tagline>
+		<location>Redwood City CA</location>
+		<url>http://www.axxxx.com</url>
+		<picture_url>default.jpg</picture_url>
+		<stripe_customer_id>NULL</stripe_customer_id>
+		<post_count>0</post_count>
+		<date_created>2006-05-24 00:00:00</date_created>
+		<old_id>460</old_id>
+		<user_id>78988</user_id>
+		<company_id>2</company_id>
+		<full_name>Mark Joooooee</full_name>
+		<email>mmmm@axxxx.com</email>
+		<type>hirer</type>
+	</ROW>
+
+</DATA>
